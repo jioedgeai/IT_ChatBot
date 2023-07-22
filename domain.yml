@@ -1,0 +1,256 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - reset_password
+  - password_req
+  - unlock_acnt
+  - request_folder_access
+  - transfer_account
+  - create_new_user_account
+  - report_unauthorized_access
+  - troubleshoot_application_access
+  - update_contact_information
+  - internet_troubleshooting
+  - wifi_problems
+  - vpn_connection
+  - it_issue
+  - issue
+  - name
+
+entities:
+- name
+- number
+- email
+
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+
+  number:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: number
+
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: email
+
+  # random:
+  #   type: text
+  #   influence_conversation: true
+  #   mappings:
+  #   - type: from_entity
+  #     entity: random
+
+forms:
+  emp_form:
+    required_slots:
+      - name
+      - number
+      - email
+      
+
+
+  
+
+responses:
+  utter_greet:
+    - text: "Hey! How can I help you?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_reset:
+    - text: |
+        To reset your password for the company's network and email accounts, please follow these steps:
+        - Log in to the company portal using your current credentials.
+        - Navigate to the account settings or security section.
+        - Look for the password change option and click on it.
+        - Follow the prompts to enter a new password and confirm the changes.
+        - Make sure to choose a strong and unique password.
+        - Is the issue resolved ?
+  
+  utter_req:
+    - text: |
+       When creating a strong password, consider the following guidelines:
+       - Use a minimum of 8 characters.
+       - Include a combination of uppercase and lowercase letters.
+       - Include numbers and special characters.
+       - Avoid using easily guessable information, such as your name or birthdate.
+       - Avoid using common words or dictionary terms.
+       - Don't reuse passwords across multiple accounts.
+       - Regularly update your password for better security.
+      
+        - Please note that specific password requirements may vary depending on the system or organization you are creating the password for. It's always a good practice to follow any additional guidelines provided by your IT department or the specific service you are using.
+        - Is the issue resolved ?
+
+ 
+  utter_unlock:
+    - text: |
+        If you've been locked out of your account, please try the following steps:
+        - Wait for a few minutes and try logging in again. Sometimes, the lockout is temporary.
+        - If the issue persists, contact the IT helpdesk or your system administrator for assistance.
+        - They will verify your identity and take the necessary steps to unlock your account.
+        - Is the issue resolved ?
+    - text: "Kindly contact the IT Support Team"
+
+  utter_folder_access:
+   - text: |
+       - To request access to a specific shared folder on the network, please follow these steps:
+       - Contact your supervisor or the IT department to make the access request.
+       - Provide them with the name or path of the folder you need access to.
+       - Explain the reason for requesting access and the level of access required.
+       - The IT department will review your request and grant access if appropriate.
+       - Is the issue resolved ?
+
+  utter_transfer:
+    - text: |
+          - To transfer the account of a former employee to a new employee, please follow these steps:
+          - Notify the IT department about the employee transition and provide necessary details.
+          - They will guide you through the process and assist with transferring the account.
+          - The new employee will typically receive a new username and password for the account.
+          - Access rights and permissions will be adjusted based on the new employee's role.
+          - Is the issue resolved ?
+
+
+  utter_create:
+    - text: |
+          - To create a new user account for a new employee joining the company, please follow these steps:
+          - Provide the IT department with the necessary details of the new employee.
+          - This includes their full name, job title, department, and other relevant information.
+          - The IT department will create the user account and provide the new employee with login credentials.
+          - The new employee can then log in to their account and set up any additional preferences.
+          - Is the issue resolved ?
+
+  utter_report:
+    - text: |
+        - If you suspect unauthorized access to your account, please follow these steps:
+          - Immediately change your password to ensure the security of your account.
+          - Contact the IT helpdesk or your system administrator to report the issue.
+          - Provide them with details of the suspicious activities and any evidence, if available.
+          - They will investigate the issue, take appropriate actions, and provide further guidance.
+          - Is the issue resolved ?
+
+  utter_troubleshoot:
+    - text: |
+        - If you're having trouble accessing a particular application, please try the following steps:
+          - Verify that you are entering the correct username and password for the application.
+          - Ensure that you have the necessary permissions to access the application.
+          - Check if there are any known issues or scheduled maintenance for the application.
+          - If the problem persists, contact the IT helpdesk or the application support team for assistance.
+          - Is the issue resolved ?
+
+  utter_update_contact:
+    - text: |
+        - To update your contact information associated with your user account, please follow these steps:
+          - Log in to your account and navigate to the account settings or profile section.
+          - Look for the option to update your contact information such as email address or phone number.
+          - Make the necessary changes and save the updated information.
+          - It's important to keep your contact information up to date for communication purposes.
+          - Is the issue resolved ?
+
+  utter_internet_troubleshooting:
+    - text: |
+          -	There are different ways to fix this problem.
+          -	Check your hardware: Ensure that all cables and connections are securely plugged in.
+          -	Restart your devices: Power cycle your modem/router and the device you're trying to connect to the internet.
+          -	Verify connectivity: If you're using a wired connection, check if the network adapter on your device is properly recognized and enabled.
+          - In Windows, you can do this by going to "Control Panel > Network and Internet > Network Connections" and checking the status of your Ethernet or Wi-Fi connection.
+          -	Disable/enable network adapter: In Windows, you can try disabling and then enabling your network adapter to refresh the connection. 
+          - Right-click on the network icon in the system tray, select "Open Network & Internet Settings," then go to "Change adapter options." Right-click on your network adapter and choose "Disable." Wait a few seconds, then right-click again and choose "Enable."
+          - Is the issue resolved ?
+
+  utter_wifi_problems:
+    - text: |
+          -	If you're having trouble connecting to Wi-Fi, here are some steps you can take to troubleshoot the issue:
+          -	Verify Wi-Fi settings: Check that your device's Wi-Fi is turned on and that it's attempting to connect to the correct network. 
+          - Ensure that you're entering the correct Wi-Fi password, as an incorrect password will prevent the connection.
+          -	Forget and reconnect to the network: On your device, go to the Wi-Fi settings and find the network you're having trouble with.
+          - Select the network and choose the option to "Forget" or "Remove" it. Then, reconnect to the network by selecting it again and entering the password.
+          -	Restart your Wi-Fi router: Try restarting your Wi-Fi router by unplugging it from the power source, waiting for about 30 seconds, and then plugging it back in.
+          -	Disable/enable Wi-Fi: On your device, disable Wi-Fi and then enable it again. This can help refresh the connection and resolve minor issues.
+          - You can usually find this option in the Wi-Fi settings on your device.
+          - Is the issue resolved ?
+
+  utter_vpn_connection:
+    - text: |
+          -	Obtain VPN credentials: Contact your company's IT department or network administrator to obtain the necessary VPN credentials. 
+          -	Install VPN software (if required): Your company may require you to install specific VPN client software on your device.
+          -	Launch the VPN client: Once the VPN software is installed, locate the VPN client application on your device and launch it.
+          -	Enter your credentials: In the VPN client, you will typically see a login or authentication screen. Enter the username and password provided by your company. 
+          -	Select the VPN server: After logging in, you may need to select the VPN server or network you want to connect to. 
+          -	Connect to the VPN: Once you've selected the desired VPN server, look for a "Connect" or "Connect to VPN" button or similar option. Click on it to initiate the connection process.
+          -	Wait for the connection: The VPN client will establish a secure connection to the company's VPN server. 
+          -	Connected to the VPN: Once the connection is established, you will typically see a confirmation message indicating that you are now connected to the company's VPN. At this point, your device's network traffic is routed through the VPN, providing a secure connection to your company's network resources.
+          -	Access company resources: With the VPN connection established, you should now be able to access internal company resources such as file servers, intranet sites, or other systems as required for your work.
+          - Is the issue resolved ?
+
+  utter_ask_name:
+    - text: "Please enter your name."
+
+  utter_ask_number:
+    - text: "Please enter your phone number."
+
+  utter_ask_email:
+    - text: "Please enter your email."
+
+
+  utter_submit:
+    - text: "Thanks for filling the details"
+
+  utter_slot_values:
+    - text: |
+          -	Thank you for providing the details {name}!
+          -	Please check your details {number},{email}.
+          -	How can I help you ?
+  
+          
+
+  
+# domain.yml
+
+actions:
+  - action_hello_world
+  - action_say_data
+  - action_generate_random_number
+  # - action_send_email
+
+
+
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+

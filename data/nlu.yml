@@ -1,0 +1,244 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+
+- intent: inform
+  examples: |
+    - hey, this is [harshitha](name)
+    - my name is [amulya](name)
+    - hi,[kavitha] here!(name)
+    - [akhil](name)
+    - my phone number is [8765467865](number)
+    - my contact is [7896546789](number)
+    - [6578654568](number)
+    - my email is [harshitha@gmail.com](email)
+    - my mail is [har@gmail.com](email)
+    - [amulya@gmail.com](email)
+
+  
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - yes
+    - yeah
+    
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: reset_password
+  examples: |
+    - How can I reset my password?
+    - I forgot my password. How do I recover it?
+    - What is the process to change my password?
+    - I can't log into my account. How can I reset my password?
+    - What is the procedure to change my forgotten password?
+    - I've lost access to my account. How do I go about resetting my password?
+    - reset my password
+    - forgotten my password 
+
+- intent: password_req
+  examples: |
+    - What are the requirements for creating a strong password?
+    - Are there any restrictions on password length and complexity?
+    - Can you provide guidelines for setting a secure password?
+    - What are the minimum requirements for a strong password?
+    - Can you provide some tips for creating a secure password?
+    - Are special characters required in passwords?
+
+- intent: unlock_acnt
+  examples: |
+    - My account is locked. How can I unlock it?
+    - I've been locked out of my account. How do I regain access?
+    - What should I do if my account gets locked?
+    - My account is locked. How can I regain access?
+    - I can't log in to my account. What should I do?
+    - My account got locked due to multiple failed login attempts. How can I unlock it?
+    - I received a notification that my account is locked. How do I regain access?
+    - Is there a way to unlock my account without contacting support?
+
+
+- intent: request_folder_access
+  examples: |
+   - I need access to a specific shared folder on the network. How can I request permission for that?
+   - Can you grant me access to the shared folder XYZ?
+   - How can I get permission to access the folder ABC?
+
+- intent: transfer_account
+  examples: |
+    - My colleague has left the company, and I need to take over their responsibilities. Can their account be transferred to me?
+    - Is it possible to transfer the account of a former employee to a new employee?
+    - How can I inherit the access rights of someone who left the organization?
+
+- intent: create_new_user_account
+  examples: |
+    - What is the process for creating a new user account for a new employee joining the company?
+    - How can I set up an account for a new hire?
+    - Can you guide me through the steps to create a new user account?
+
+- intent: report_unauthorized_access
+  examples: |
+    - I suspect that someone has unauthorized access to my account. How can I secure it and investigate the issue?
+    - What should I do if I think my account has been compromised?
+    - I noticed suspicious activities in my account. How can I report it?
+
+- intent: troubleshoot_application_access
+  examples: |
+    - I'm having trouble accessing a particular application. Are there any specific requirements or permissions needed?
+    - I can't log in to the application XYZ. What could be the problem?
+    - Why am I getting an "Access Denied" error when trying to open the application?
+
+- intent: update_contact_information
+  examples: |
+    - How can I update my contact information associated with my user account?
+    - Where can I change my email address in my account details?
+    - How do I edit my phone number in my user profile?
+
+- intent: internet_troubleshooting
+  examples: |
+    - I'm unable to connect to the internet. What should I do?
+    - My internet connection is not working. How can I troubleshoot it?
+    - How do I fix common internet connectivity issues?
+    - My internet connection is very slow. How can I improve its speed?
+    - I'm unable to browse websites. What can I do to fix it?
+    - Are there any common troubleshooting steps for internet connectivity issues?
+
+- intent: wifi_problems
+  examples: |
+    - I'm having trouble connecting to Wi-Fi. How can I fix it?
+    - Why is my computer not detecting any Wi-Fi networks?
+    - How can I troubleshoot Wi-Fi connectivity problems?
+    - My device is connected to Wi-Fi, but I can't access the internet. How can I resolve this?
+    - I'm experiencing frequent Wi-Fi disconnections. What should I do?
+    - Are there any tips to boost the Wi-Fi signal strength at my office?
+    
+
+- intent: vpn_connection
+  examples: |
+    - How do I establish a VPN connection?
+    - What are the VPN settings I need to configure?
+    - Can you provide instructions for connecting to the company's VPN?
+    - How can I connect to the company's VPN from my home computer?
+    - Are there any specific VPN client software I need to install?
+    - What information do I need to provide to establish a VPN connection?
+    
+
+
+- intent: it_issue
+  examples: |
+    - the issue is not resolved
+    - the problem is not resolved
+    - i need more assistance
+    - can you provide me more assistance ?
+    - raise the ticket
+    - no
+    - nope
+    - nah
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+version: "3.1"
+
+stories:
+  - story: happy path
+    steps:
+    - intent: mood_great
+    - action: utter_happy
+    - intent: reset_password
+    - action: utter_reset
+    - intent: password_req
+    - action: utter_req
+    - intent: unlock_acnt
+    - action: utter_unlock
+    - intent: request_folder_access
+    - action: utter_folder_access
+    - intent: transfer_account
+    - action: utter_transfer
+    - intent: create_new_user_account
+    - action: utter_create
+    - intent: report_unauthorized_access
+    - action: utter_report
+    - intent: troubleshoot_application_access
+    - action: utter_troubleshoot
+    - intent: update_contact_information
+    - action: utter_update_contact
+    - intent: internet_troubleshooting
+    - action: utter_internet_troubleshooting
+    - intent: wifi_problems
+    - action: utter_wifi_problems
+    - intent: vpn_connection
+    - action: utter_vpn_connection
+    - intent: it_issue
+    - action: action_generate_random_number
+    # - action: action_send_email
+
+  - story: sad path 1
+    steps:
+    - intent: mood_unhappy
+    - action: utter_cheer_up
+    - action: utter_did_that_help
+    - intent: affirm
+    - action: utter_happy
+
+  - story: sad path 2
+    steps:
+    - intent: mood_unhappy
+    - action: utter_cheer_up
+    - action: utter_did_that_help
+    - intent: deny
+    - action: utter_goodbye

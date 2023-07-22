@@ -1,0 +1,117 @@
+version: "3.1"
+
+rules:
+
+
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: reset password
+  steps:
+  - intent: reset_password
+  - action: utter_reset
+
+- rule: password requirements
+  steps:
+  - intent: password_req
+  - action: utter_req
+
+- rule: unlock account
+  steps:
+  - intent: unlock_acnt
+  - action: utter_unlock
+
+- rule: request folder access 
+  steps:
+  - intent: request_folder_access
+  - action: utter_folder_access
+
+- rule: request account transfer 
+  steps:
+  - intent: transfer_account
+  - action: utter_transfer
+
+- rule: create new user account
+  steps:
+  - intent: create_new_user_account
+  - action: utter_create
+
+- rule: report unauthorized access
+  steps:
+  - intent: report_unauthorized_access
+  - action: utter_report
+
+- rule: troubleshoot application access
+  steps:
+  - intent: troubleshoot_application_access
+  - action: utter_troubleshoot
+
+- rule: update contact information
+  steps:
+  - intent: update_contact_information
+  - action: utter_update_contact
+
+- rule: internet troubleshooting
+  steps:
+  - intent: internet_troubleshooting
+  - action: utter_internet_troubleshooting
+
+- rule: wifi problems
+  steps:
+  - intent: wifi_problems
+  - action: utter_wifi_problems
+
+- rule: vpn connection
+  steps:
+  - intent: vpn_connection
+  - action: utter_vpn_connection
+
+- rule: Activate a form
+  steps:
+  - intent: greet
+  - action: emp_form
+  - active_loop: emp_form
+
+- rule: Submit form
+  condition:
+    - active_loop: emp_form
+  steps:
+    - action: emp_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_slot_values
+
+
+- rule: raising a ticket
+  steps:
+  - intent: it_issue
+  - action: action_generate_random_number
+  # - action: action_send_email
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
