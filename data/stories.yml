@@ -5,10 +5,6 @@ stories:
     steps:
     - intent: mood_great
     - action: utter_happy
-    - intent: reset_password
-    - action: utter_reset
-    - intent: password_req
-    - action: utter_req
     - intent: unlock_acnt
     - action: utter_unlock
     - intent: request_folder_access
@@ -17,34 +13,88 @@ stories:
     - action: utter_transfer
     - intent: create_new_user_account
     - action: utter_create
-    - intent: report_unauthorized_access
-    - action: utter_report
+    # - intent: report_unauthorized_access
+    # - action: utter_report
     - intent: troubleshoot_application_access
     - action: utter_troubleshoot
     - intent: update_contact_information
     - action: utter_update_contact
     - intent: internet_troubleshooting
     - action: utter_internet_troubleshooting
-    - intent: wifi_problems
-    - action: utter_wifi_problems
+    # - intent: wifi_problems
+    # - action: utter_wifi_problems
+    # - intent: vpn_connection
+    # - action: utter_vpn_connection
+    - intent: gratitude
+    - action: utter_affirm
+
+   
+    # - intent: inform_option_a
+    # - action: action_handle_option_a
+
+    # - intent: inform_option_b
+    # - action: action_handle_option_b
+
+    # - intent: it_wifi
+    # - action: action_handle_option_wifi
+   
+   
+    
+
+  - story: vpn sad path
+    steps:
     - intent: vpn_connection
     - action: utter_vpn_connection
-    - intent: it_issue
-    - action: action_generate_random_number
-    # - action: action_send_email
+    - action: utter_option_prompt
+
+  - story: wifi sad path
+    steps:
+    - intent: wifi_problems
+    - action: utter_wifi_problems
+    - action: utter_option_prompt_wifi
+
+  - story: reset password sad path
+    steps:
+    - intent: reset_password
+    - action: utter_reset
+    - action: utter_option_prompt_password
+
+  - story: password requirement sad path
+    steps:
+    - intent: password_req
+    - action: utter_req
+    - action: utter_option_prompt_req
+
+  - story: report sad path
+    steps:
+    - intent: report_unauthorized_access
+    - action: utter_report
+    - action: utter_option_prompt_report
+
+  - story: out of scope
+    steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+
+  # for future reference - fallback
+  # - story: user rejects suggestion
+  #   steps:
+  #   - intent: out_of_scope
+  #   - action: action_default_fallback
+  #   - action: utter_out_of_scope
+    
 
   - story: sad path 1
     steps:
     - intent: mood_unhappy
     - action: utter_cheer_up
     - action: utter_did_that_help
-    - intent: affirm
-    - action: utter_happy
+    
 
   - story: sad path 2
     steps:
     - intent: mood_unhappy
     - action: utter_cheer_up
     - action: utter_did_that_help
-    - intent: deny
-    - action: utter_goodbye
+  
+ 

@@ -18,16 +18,19 @@ rules:
   steps:
   - intent: reset_password
   - action: utter_reset
+  - action: utter_option_prompt_password
 
 - rule: password requirements
   steps:
   - intent: password_req
   - action: utter_req
+  - action: utter_option_prompt_req
 
 - rule: unlock account
   steps:
   - intent: unlock_acnt
   - action: utter_unlock
+  
 
 - rule: request folder access 
   steps:
@@ -48,6 +51,7 @@ rules:
   steps:
   - intent: report_unauthorized_access
   - action: utter_report
+  - action: utter_option_prompt_report
 
 - rule: troubleshoot application access
   steps:
@@ -68,11 +72,21 @@ rules:
   steps:
   - intent: wifi_problems
   - action: utter_wifi_problems
+  - action: utter_option_prompt_wifi
+
 
 - rule: vpn connection
   steps:
   - intent: vpn_connection
   - action: utter_vpn_connection
+  - action: utter_option_prompt
+
+
+
+- rule: showing gratitude
+  steps:
+  - intent: gratitude
+  - action: utter_affirm
 
 - rule: Activate a form
   steps:
@@ -91,11 +105,55 @@ rules:
     - action: utter_slot_values
 
 
-- rule: raising a ticket
+
+
+- rule: option a
   steps:
-  - intent: it_issue
-  - action: action_generate_random_number
-  # - action: action_send_email
+  - intent: inform_option_a
+  - action: action_handle_option_a
+
+- rule: option b for vpn
+  steps:
+  - intent: inform_option_b
+  - action: action_handle_option_b
+
+
+- rule: option b for wifi
+  steps:
+  - intent: it_wifi
+  - action: action_handle_option_wifi
+
+- rule: option b for password
+  steps:
+  - intent: it_password
+  - action: action_handle_option_wifi
+
+- rule: option b for password requirement 
+  steps:
+  - intent: it_req
+  - action: action_handle_option_wifi
+
+- rule: option b for reporting 
+  steps:
+  - intent: it_report
+  - action: action_handle_option_wifi
+
+- rule: out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+
+
+    
+    
+    
+# general way to raise a ticket
+# - rule: raising a ticket
+#   steps:
+#   - intent: it_issue
+#   - action: action_generate_random_number
+
 
 
 

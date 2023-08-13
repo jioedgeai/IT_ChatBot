@@ -20,59 +20,67 @@ intents:
   - internet_troubleshooting
   - wifi_problems
   - vpn_connection
-  - it_issue
-  - issue
+  - it
+  - it_vpn
+  - it_wifi
   - name
+  - greeting
+  - inform_option_b
+  - inform_option_a
+  - ask_user_preference
+  - out_of_scope
+  - inform
+  - it_req
+  - it_password
+  - it_report
+  - gratitude
 
 entities:
-- name
-- number
-- email
-
+  - empid
+  # future reference - to add multiple entities
+  # - number
+  - email
 
 slots:
-  name:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: name
+  
 
-  number:
+  empid:
     type: text
     influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: number
+      - type: from_entity
+        entity: empid
+
+  # number:
+  #   type: text
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_entity
+  #       entity: number
 
   email:
     type: text
     influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: email
-
-  # random:
-  #   type: text
-  #   influence_conversation: true
-  #   mappings:
-  #   - type: from_entity
-  #     entity: random
+      - type: from_entity
+        entity: email
 
 forms:
   emp_form:
     required_slots:
-      - name
-      - number
+      - empid
+      # - number
       - email
-      
 
 
   
 
 responses:
+
   utter_greet:
     - text: "Hey! How can I help you?"
+  
+  
 
   utter_cheer_up:
     - text: "Here is something to cheer you up:"
@@ -80,6 +88,11 @@ responses:
 
   utter_did_that_help:
     - text: "Did that help you?"
+
+
+  utter_out_of_scope:
+    - text: "Sorry, I can't handle the request. Please connect getit:getit@ril.com"
+
 
   utter_happy:
     - text: "Great, carry on!"
@@ -98,7 +111,7 @@ responses:
         - Look for the password change option and click on it.
         - Follow the prompts to enter a new password and confirm the changes.
         - Make sure to choose a strong and unique password.
-        - Is the issue resolved ?
+        
   
   utter_req:
     - text: |
@@ -111,8 +124,9 @@ responses:
        - Don't reuse passwords across multiple accounts.
        - Regularly update your password for better security.
       
-        - Please note that specific password requirements may vary depending on the system or organization you are creating the password for. It's always a good practice to follow any additional guidelines provided by your IT department or the specific service you are using.
-        - Is the issue resolved ?
+        - Please note that specific password requirements may vary depending on the system or organization you are creating the password for. 
+        - It's always a good practice to follow any additional guidelines provided by your IT department or the specific service you are using.
+        
 
  
   utter_unlock:
@@ -121,8 +135,8 @@ responses:
         - Wait for a few minutes and try logging in again. Sometimes, the lockout is temporary.
         - If the issue persists, contact the IT helpdesk or your system administrator for assistance.
         - They will verify your identity and take the necessary steps to unlock your account.
-        - Is the issue resolved ?
-    - text: "Kindly contact the IT Support Team"
+        
+   
 
   utter_folder_access:
    - text: |
@@ -131,7 +145,7 @@ responses:
        - Provide them with the name or path of the folder you need access to.
        - Explain the reason for requesting access and the level of access required.
        - The IT department will review your request and grant access if appropriate.
-       - Is the issue resolved ?
+       
 
   utter_transfer:
     - text: |
@@ -140,7 +154,7 @@ responses:
           - They will guide you through the process and assist with transferring the account.
           - The new employee will typically receive a new username and password for the account.
           - Access rights and permissions will be adjusted based on the new employee's role.
-          - Is the issue resolved ?
+          
 
 
   utter_create:
@@ -150,16 +164,16 @@ responses:
           - This includes their full name, job title, department, and other relevant information.
           - The IT department will create the user account and provide the new employee with login credentials.
           - The new employee can then log in to their account and set up any additional preferences.
-          - Is the issue resolved ?
+          
 
   utter_report:
     - text: |
-        - If you suspect unauthorized access to your account, please follow these steps:
+          - If you suspect unauthorized access to your account, please follow these steps:
           - Immediately change your password to ensure the security of your account.
           - Contact the IT helpdesk or your system administrator to report the issue.
           - Provide them with details of the suspicious activities and any evidence, if available.
           - They will investigate the issue, take appropriate actions, and provide further guidance.
-          - Is the issue resolved ?
+          
 
   utter_troubleshoot:
     - text: |
@@ -168,7 +182,7 @@ responses:
           - Ensure that you have the necessary permissions to access the application.
           - Check if there are any known issues or scheduled maintenance for the application.
           - If the problem persists, contact the IT helpdesk or the application support team for assistance.
-          - Is the issue resolved ?
+          
 
   utter_update_contact:
     - text: |
@@ -177,7 +191,7 @@ responses:
           - Look for the option to update your contact information such as email address or phone number.
           - Make the necessary changes and save the updated information.
           - It's important to keep your contact information up to date for communication purposes.
-          - Is the issue resolved ?
+         
 
   utter_internet_troubleshooting:
     - text: |
@@ -188,7 +202,7 @@ responses:
           - In Windows, you can do this by going to "Control Panel > Network and Internet > Network Connections" and checking the status of your Ethernet or Wi-Fi connection.
           -	Disable/enable network adapter: In Windows, you can try disabling and then enabling your network adapter to refresh the connection. 
           - Right-click on the network icon in the system tray, select "Open Network & Internet Settings," then go to "Change adapter options." Right-click on your network adapter and choose "Disable." Wait a few seconds, then right-click again and choose "Enable."
-          - Is the issue resolved ?
+          
 
   utter_wifi_problems:
     - text: |
@@ -200,7 +214,7 @@ responses:
           -	Restart your Wi-Fi router: Try restarting your Wi-Fi router by unplugging it from the power source, waiting for about 30 seconds, and then plugging it back in.
           -	Disable/enable Wi-Fi: On your device, disable Wi-Fi and then enable it again. This can help refresh the connection and resolve minor issues.
           - You can usually find this option in the Wi-Fi settings on your device.
-          - Is the issue resolved ?
+         
 
   utter_vpn_connection:
     - text: |
@@ -212,17 +226,58 @@ responses:
           -	Connect to the VPN: Once you've selected the desired VPN server, look for a "Connect" or "Connect to VPN" button or similar option. Click on it to initiate the connection process.
           -	Wait for the connection: The VPN client will establish a secure connection to the company's VPN server. 
           -	Connected to the VPN: Once the connection is established, you will typically see a confirmation message indicating that you are now connected to the company's VPN. At this point, your device's network traffic is routed through the VPN, providing a secure connection to your company's network resources.
-          -	Access company resources: With the VPN connection established, you should now be able to access internal company resources such as file servers, intranet sites, or other systems as required for your work.
-          - Is the issue resolved ?
+          
 
-  utter_ask_name:
-    - text: "Please enter your name."
+  utter_affirm:
+    - text: |
+        - I'm glad that I could assist you.
+        - If you have any more questions or need help in the future, please reach out.
+        - Have a great day!
 
-  utter_ask_number:
-    - text: "Please enter your phone number."
+  utter_it:
+    - text: "Do you want me to raise a ticket ?"
+
+ 
+  utter_ask_empid:
+     
+    - text: |
+        
+        - Hi, fellow geek! How can I be of assistance in the IT realm today?
+         
+         - Before we begin addressing your concern, could you please share your Employee ID with me? 
+               
+
+    - text: |
+       - Hi there! Need help with any IT problems? I'm here to assist!
+
+        - However, before we delve into the details of your issue, could you please provide me with some information about yourself? 
+        - Please enter your Employee ID.
+
+    - text: |
+       - Greetings! Facing tech troubles? Let's work together to find a solution.
+
+        - Before we dig into your problem, could you let me know your Employee ID? It helps me to assist you better.
+  
+   
+    
+    - text: |
+        
+        - Greetings! Need IT expertise? You're in the right place. How can I help you?
+
+         - But before we jump into troubleshooting, could you share your Employee ID with me? 
+
+    - text: |
+        
+        - Hey! I'm your IT assistant. Tell me about your technical hiccups so that I can assist you.
+
+         - Before we start our conversation , i would like to know few details about you.
+         - I'd appreciate it if you could enter your Employee ID.
+
+  # utter_ask_number:
+  #   - text: "{empid} ,Could you provide your phone number, please?"
 
   utter_ask_email:
-    - text: "Please enter your email."
+    - text: "{empid} ,Could you input your email address, please?"
 
 
   utter_submit:
@@ -230,9 +285,58 @@ responses:
 
   utter_slot_values:
     - text: |
-          -	Thank you for providing the details {name}!
-          -	Please check your details {number},{email}.
+          -	Thank you for providing the details {empid}!
+          -	Please check your Email ID
+          - {email}.
           -	How can I help you ?
+
+  utter_option_prompt:
+    - text: "Please select an option:"
+      buttons:
+        - title: "The issue is resolved !"
+          payload: "/inform_option_a"
+        - title: "Raise a ticket "
+          payload: "/inform_option_b"
+
+  utter_option_prompt_wifi:
+    - text: "Please select an option:"
+      buttons:
+        - title: "The issue is resolved !"
+          payload: "/inform_option_a"
+        - title: "Raise a ticket "
+          payload: "/it_wifi"
+
+  utter_option_prompt_password:
+    - text: "Please select an option:"
+      buttons:
+        - title: "The issue is resolved !"
+          payload: "/inform_option_a"
+        - title: "Raise a ticket "
+          payload: "/it_password"
+
+  utter_option_prompt_req:
+    - text: "Please select an option:"
+      buttons:
+        - title: "The issue is resolved !"
+          payload: "/inform_option_a"
+        - title: "Raise a ticket "
+          payload: "/it_req"
+
+  utter_option_prompt_report:
+    - text: "Please select an option:"
+      buttons:
+        - title: "The issue is resolved !"
+          payload: "/inform_option_a"
+        - title: "Raise a ticket "
+          payload: "/it_report"
+  
+  utter_default:
+    - text: "I'm sorry, I can't help you."
+
+
+  utter_ask_affirmation:
+     - text: "Did you mean?" 
+
   
           
 
@@ -241,9 +345,13 @@ responses:
 
 actions:
   - action_hello_world
-  - action_say_data
-  - action_generate_random_number
-  # - action_send_email
+  - action_say_datas
+  - action_generate_random_numberr
+  - action_handle_option_a
+  - action_handle_option_b
+  - action_handle_option_wifi
+  # - action_default_fallback
+
 
 
 

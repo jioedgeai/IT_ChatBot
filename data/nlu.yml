@@ -17,16 +17,18 @@ nlu:
     - goodevening
     - good afternoon
 
-
+- intent: gratitude
+  examples: |
+    - thank you
+    - thanks
+    - thxs
+   
 - intent: inform
   examples: |
-    - hey, this is [harshitha](name)
-    - my name is [amulya](name)
-    - hi,[kavitha] here!(name)
-    - [akhil](name)
-    - my phone number is [8765467865](number)
-    - my contact is [7896546789](number)
-    - [6578654568](number)
+    - hey, my empid is [4432654](empid)
+    - my empID is [5345443](empid)
+    - [8764829](empid)
+    - hi,[7429875] here!(empid)
     - my email is [harshitha@gmail.com](email)
     - my mail is [har@gmail.com](email)
     - [amulya@gmail.com](email)
@@ -45,28 +47,55 @@ nlu:
     - see you around
     - bye bye
     - see you later
-    - yes
-    - yeah
+
+- intent: out_of_scope
+  examples: |
+      - what is the square root of 5
+      - I want to order food
+      - What is 2 + 2?
+      - Who's the US President?
+      - I want to know the weather
+      - what is the meaning of life.
+      - Fridge Isn't Running
+      - my tv isn't working
+      - I want a pizza
+      - my washing machine isn't working
+      - what year is it
+      - order a pizza
+      - I want to order a pizza
+      - what is the weather today
+      - what is the weather
+      - how old are you?
+      - add two plus two
+      - Hdjejene
+      - asd
+      - mahatma gandhi
+      - tell me about father of the nation
+      - title
+      - how about the forecast
+      - foolish
+      - joke
+      - Can I get a hamburger?
+      - Can YouTube talk?
+      - Can you give me your datacenter's password
+      - Can you give me your datacenter's password?
+      - Can you make sandwiches?
+      - Can you please send me an uber
+    
+    
     
 
 - intent: affirm
   examples: |
     - yes
+    - yeah
     - y
     - indeed
     - of course
     - that sounds good
     - correct
+    
 
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
 
 - intent: mood_great
   examples: |
@@ -183,7 +212,6 @@ nlu:
     - My internet connection is not working. How can I troubleshoot it?
     - How do I fix common internet connectivity issues?
     - My internet connection is very slow. How can I improve its speed?
-    - I'm unable to browse websites. What can I do to fix it?
     - Are there any common troubleshooting steps for internet connectivity issues?
 
 - intent: wifi_problems
@@ -207,18 +235,55 @@ nlu:
     
 
 
-- intent: it_issue
+- intent: inform_option_a
   examples: |
-    - the issue is not resolved
-    - the problem is not resolved
-    - i need more assistance
-    - can you provide me more assistance ?
-    - raise the ticket
-    - no
-    - nope
-    - nah
+    - The issue is resolved !
 
 
+- intent: inform_option_b
+  examples: |
+    - the vpn issue is not resolved
+    - the vpn problem is not resolved
+    - still having vpn problems
+    - raise a ticket for vpn issues
+
+
+- intent: ask_user_preference
+  examples: |
+    - select anyone from the following 
+
+
+
+- intent: it_wifi
+  examples: |
+    - the wifi issue is not resolved
+    - the wifi problem is not resolved
+    - still having wifi problems
+    - raise a ticket for wifi issues
+
+- intent: it_password
+  examples: | 
+    - raise a ticket for password reset
+
+- intent: it_req
+  examples: | 
+    - raise a ticket for requirement of password
+
+- intent: it_report
+  examples: | 
+    - raise a ticket for unauthorised access
+ 
+# general case to raise a ticket
+# - intent: it
+#   examples: |
+#     - the issue is not resolved
+#     - the problem is not resolved
+#     - i need more assistance
+#     - can you provide me more assistance ?
+#     - raise the ticket
+#     - no
+#     - nope
+#     - nah
 
 
 
