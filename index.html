@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jio Edge AI</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .centered-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            font-size: 50px;
+            /* Increase the font size as desired */
+            color: rgb(31, 71, 247);
+            /* Change the color to blue */
+        }
+        
+        .centered-image {
+            max-width: 50%;
+            max-height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered-container">
+        <h1>Jio Edge AI</h1>
+        <img class="centered-image" src="jio.webp" alt="Jio Edge AI Image">
+    </div>
+
+    <script>
+        !(function() {
+            let e = document.createElement("script"),
+                t = document.head || document.getElementsByTagName("head")[0];
+            (e.src = "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"), // Replace 1.x.x with the version that you want
+            (e.async = !0), (e.onload = () => {
+                window.WebChat.default({
+                    initPayload: '/greet',
+                    customData: {
+                        language: "en"
+                    },
+                    socketUrl: "http://localhost:5005",
+                    title: 'Jio Edge AI',
+                    subtitle: 'IT Support ChatBot' // add other props here
+
+                }, null);
+            }), t.insertBefore(e, t.firstChild);
+        })();
+
+        localStorage.clear();
+    </script>
+</body>
+
+</html>
