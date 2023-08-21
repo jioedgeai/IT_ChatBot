@@ -16,6 +16,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from rasa_sdk.events import SlotSet
 from rasa_sdk.events import UserUtteranceReverted
+from rasa.core.tracker_store import TrackerStore
+from pymongo import MongoClient
 
 
 class ActionHandleOptionA(Action):
@@ -132,6 +134,38 @@ class ActionHandleOptionWifi(Action):
     
 
 
+
+# # class CustomTrackerStore(TrackerStore):
+#     def __init__(self, domain, host, port, db_name, collection_name):
+#         self.client = MongoClient(host, port)
+#         self.db = self.client[db_name]
+#         self.collection = self.db[collection_name]
+#         super().__init__(domain)
+
+#     def save(self, tracker):
+#         # Extract relevant data from the tracker
+#         latest_event = tracker.events[-1]
+#         user_intent = latest_event.get("parse_data", {}).get("intent", {}).get("name")
+#         active_domain = tracker.current_state()["active_form"]
+        
+#         # Create a document to store in MongoDB
+#         document = {
+#             "user_intent": user_intent,
+#             "active_domain": active_domain
+#         }
+        
+#         # Save the document in the collection
+#         self.collection.insert_one(document)
+
+#     def retrieve(self, sender_id):
+#         # Retrieve data from MongoDB and return a dictionary
+#         document = self.collection.find_one({"_id": sender_id})
+#         if document:
+#             return {
+#                 "user_intent": document["user_intent"],
+#                 "active_domain": document["active_domain"]
+#             }
+#         return None
 
 # from rasa_sdk.executor import CollectingDispatcher
 

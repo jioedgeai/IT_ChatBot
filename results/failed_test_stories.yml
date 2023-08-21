@@ -1,0 +1,19 @@
+version: "3.1"
+stories:
+- story: forgot password (.\tests\test_stories.yml)
+  steps:
+  - action: utter_ask_empid
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: inform  # predicted: inform: ["12345](empid)"
+  - action: utter_ask_email  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: inform  # predicted: inform: "[rao@gmail.com](email)"
+  - action: utter_slot_values  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: reset_password
+  - action: utter_reset
+  - action: utter_option_prompt  # predicted: utter_option_prompt_password
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: inform_option_a
+  - action: utter_affirm  # predicted: action_handle_option_a
+  - action: action_listen  # predicted: action_default_fallback

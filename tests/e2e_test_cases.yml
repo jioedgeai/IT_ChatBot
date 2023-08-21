@@ -1,0 +1,16 @@
+
+# test_cases:
+#  - test_case: "test_vpn"
+  
+#    steps:
+    
+#     - action: utter_ask_empid
+#     - user: "12345"
+#     - action: utter_ask_email
+#     - user: "rao@gmail.com"
+#     - action: utter_slot_values
+#     - user: "how to connect to vpn"
+#     - action: utter_vpn_connection
+#     - action: utter_option_prompt
+#     - user: inform_option_a
+#     -
