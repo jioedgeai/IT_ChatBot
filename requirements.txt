@@ -184,8 +184,3 @@ yarl==1.9.2
 zipp==3.15.0
 
 
-$Folder = 'C:\Users\Harshitha\Desktop\git-jio\IT_ChatBot\requirements.txt'
-$ACL = Get-Acl  $Folder
-$ACL_Rule = new-object System.Security.AccessControl.FileSystemAccessRule ('Tree', "ReadAndExecute",”ContainerInherit,ObjectInherit”,”None”,”Allow”)
-$ACL.SetAccessRule($ACL_Rule)
-Set-Acl -Path $Folder -AclObject $ACL
