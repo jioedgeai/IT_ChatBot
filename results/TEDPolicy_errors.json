@@ -1,0 +1,26 @@
+[
+  {
+    "text": "my empID is 12347",
+    "entities": [
+      {
+        "start": 12,
+        "end": 17,
+        "value": "12347",
+        "entity": "empid"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my email is rao.harshitha04@gmail.com",
+    "entities": [
+      {
+        "start": 12,
+        "end": 37,
+        "value": "rao.harshitha04@gmail.com",
+        "entity": "email"
+      }
+    ],
+    "predicted_entities": []
+  }
+]
