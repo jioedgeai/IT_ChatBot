@@ -1,4 +1,4 @@
-
+python3.7 -m pip install --upgrade pip
 
 
 rasa==3.5.0
@@ -13,8 +13,3 @@ protobuf==3.19.6
 PyJWT==2.7.0
 PyYAML==5.4.1
 requests==2.26.0
-scipy==1.8.1
-slack-sdk==3.21.3
-tensorflow==2.11.1
-tensorflow-addons==0.19.0
-tensorflow-estimator==2.11.0
