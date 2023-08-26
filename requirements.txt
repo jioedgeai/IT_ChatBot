@@ -1,4 +1,4 @@
-python3.7 -m pip install --upgrade pip
+
 
 
 rasa==3.5.0
